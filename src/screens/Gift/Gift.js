@@ -58,7 +58,12 @@ export default Gift = (props) =>{
   
      return(
          <View style={styles.mainView}>
-            <Image source={images.image} style={styles.gift}/>
+            <Text style={styles.heading}>Cheer!</Text>
+            <Text style={styles.subHeading}>Here's your christmas gift</Text>
+            <Image source={images.image} style={styles.gift} resizeMode='contain'/>
+            <TouchableOpacity activeOpacity={0.8} style={styles.buttonView} onPress={() => props.navigation.goBack()}>
+                <Text style={styles.buttonText}>Go Back!</Text>
+            </TouchableOpacity>
          </View>
      )
     }

@@ -15,6 +15,8 @@ export default StartScreen = (props) => {
       const user = await AsyncStorage.getItem('userInfo');
       if (user !== null) {
         props.navigation.navigate('Home')
+      } else {
+        props.navigation.navigate('InformationScreen')
       }
     } catch (error) {
       console.log(error.message)

@@ -45,7 +45,7 @@ export const styles = ScaledSheet.create({
   },
   container1: {
     flex:1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: "center",
     width: null,
@@ -85,15 +85,19 @@ export const styles = ScaledSheet.create({
     marginTop: '-10%'
   },
   elementText:{
-    color: 'black'
+    color: 'black',
+    fontSize: '14@ms',
+    fontWeight: 'bold'
   },
   openButton: {
-    backgroundColor: '#ff6565',
-    borderRadius: '10@ms',
+    backgroundColor: '#4693FF',
+    borderRadius: '50@ms',
     height: '30@ms',
-    width: '100@ms',
+    width: '150@ms',
     elevation: 5,
-    marginTop: '60@ms'
+    marginTop: '60@ms',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   textStyle: {
     color: 'white',

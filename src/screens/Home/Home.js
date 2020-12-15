@@ -125,11 +125,11 @@ export default function Home(props) {
         <View style={[styles.container1, styles.modalBackgroundStyle]}>
             <View style={styles.modalView}>
               <View style={{flexDirection: "row"}}>
-                <Text style={{color: 'black', borderBottomWidth: 1, borderBottomColor: 'grey', width: '80%', textAlign: "center", paddingBottom: 10}}>Update Information</Text>
+                <Text style={{color: 'black', borderBottomWidth: 1, borderBottomColor: 'grey', width: '80%', textAlign: "center", paddingBottom: 10, fontSize: 16, fontWeight: 'bold'}}>Update Information</Text>
               </View>
               <View style={{flexDirection: "row", marginTop: '25%'}}>
                 <Text style={styles.elementText}>Name : </Text>
-                <TextInput style={styles.elements} onChangeText ={(text)=> setName(text)}/>
+                <TextInput style={styles.elements} value={name} onChangeText ={(text)=> setName(text)}/>
               </View>
               <View style={styles.elementView}>
                 <Text style={styles.elementText}>DOB : </Text>
