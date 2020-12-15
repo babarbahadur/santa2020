@@ -5,6 +5,7 @@ import {createStackNavigator,TransitionPresets} from '@react-navigation/stack';
 import StartScreen from '../screens/StartScreen/StartScreen';
 import InformationScreen from '../screens/userInformation/index';
 import HomeScreen from '../screens/Home/Home';
+import GiftScreen from '../screens/Gift/Gift';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,11 @@ export default function StackNavigator() {
           name="Home"
           component={HomeScreen}
           initialRouteName='Home'
+        />
+         <Stack.Screen
+          name="Gift"
+          component={GiftScreen}
+          initialRouteName='Gift'
         />
       </Stack.Navigator>
     </NavigationContainer>

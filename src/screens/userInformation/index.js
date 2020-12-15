@@ -9,20 +9,37 @@ import moment from 'moment'
 import { TextInput } from 'react-native-gesture-handler';
 // import validate from '../utils/validate_wrapper';
 // import { isOverEighteen } from '../utils/validateAge';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'
 
 export default UserInformation = (props) => {
 
     const [name, setName] = useState('')
-    const [dob, setDob] = useState('YOUR DATE OF BIRTH')
+    const [dob, setDob] = useState('')
     const [calanderVisible, setCalanderVisible] = useState(false)
 
     const handlePicker = (date) => {
 
+        setDob(moment(date).format('MMMM Do YYYY'))
         setCalanderVisible(false)
     }
 
-    
+    const setItemsToStorage = async() =>{
+
+        if(name && dob == '')
+            alert('Invalid Input') 
+
+        let obj = {  
+            name,  
+            dob 
+        }
+        try {
+            await AsyncStorage.setItem('userInfo',JSON.stringify(obj));  
+            props.navigation.navigate('Home')
+        } catch (error) {
+            alert(error.message)
+        }
+    }
+
     const backgroundAnimation = () => {
         return(
           <View style={styles.container}>
@@ -55,10 +72,10 @@ export default UserInformation = (props) => {
 
             <TouchableOpacity activeOpacity={0.8} onPress={() => setCalanderVisible(true)} style={styles.nameDateView}>
                 <View style={styles.backgroundView} />
-                <Text style={styles.dobText}>{dob}</Text>
+                <Text style={styles.dobText}>{dob !='' ? dob : 'YOUR DATE OF BIRTH'}</Text>
             </TouchableOpacity>
             
-            <TouchableOpacity style={styles.buttonView} onPress={ () => props.navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.buttonView} onPress={() => setItemsToStorage()}>
                 <Text style={styles.buttonText}>Next!</Text>
             </TouchableOpacity>
              <DateTimePickerModal

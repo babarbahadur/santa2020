@@ -42,5 +42,63 @@ export const styles = ScaledSheet.create({
     color: 'white',
     fontWeight: 'bold',
     alignSelf: 'center',
-  }
+  },
+  container1: {
+    flex:1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: "center",
+    width: null,
+    height: null,
+  },
+  modalBackgroundStyle: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalView: {
+    backgroundColor: 'white',
+    width: '300@ms',
+    height: '300@ms',
+    borderRadius: 20,
+    padding: '30@ms',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: "center",
+  },
+  elementView:{
+    flexDirection: "row", 
+    marginTop: '30@ms'
+  },
+  elements:{
+    color: 'black', 
+    borderBottomWidth: 1, 
+    borderBottomColor: 'grey', 
+    width: '150@ms', 
+    textAlign: "center", 
+    paddingBottom: '3@ms', 
+    marginLeft: '15@ms',
+    marginTop: '-10%'
+  },
+  elementText:{
+    color: 'black'
+  },
+  openButton: {
+    backgroundColor: '#ff6565',
+    borderRadius: '10@ms',
+    height: '30@ms',
+    width: '100@ms',
+    elevation: 5,
+    marginTop: '60@ms'
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: '5@ms'
+  },
 });
