@@ -9,7 +9,7 @@ import moment from 'moment'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
-export default function Home() {
+export default function Home(props) {
 
   const [name, setName] = useState()
   const [dob, setDOB] = useState('')
@@ -63,9 +63,22 @@ export default function Home() {
     setCalanderVisible(false)
   }
 
-  const giftShow = () =>{
+  const ViewGift = async () =>{
 
-    
+    try {
+      const user = await AsyncStorage.getItem('userInfo');
+      if (user !== null) {
+        let data = JSON.parse(user); 
+        var today = new Date();
+        var birthDate = data.dob.split(' ')
+        var age = today.getFullYear() - +birthDate[2]
+        console.log('age --->', age)
+        props.navigation.navigate('Gift', {age: age})
+
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
   }
   
   const renderHeader = () => {
@@ -100,7 +113,7 @@ export default function Home() {
     <View style={styles.mainView}>
       { renderHeader() }
       { renderGift() }
-      <TouchableOpacity style={styles.buttonView} activeOpacity={0.8} onPress={() => props.navigation.navigate('Gift')}>
+      <TouchableOpacity style={styles.buttonView} activeOpacity={0.8} onPress={() => ViewGift()}>
         <Text style={styles.buttonText}>Let's see what Santa has for you!</Text>
       </TouchableOpacity>
 

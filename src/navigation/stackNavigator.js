@@ -38,7 +38,6 @@ export default function StackNavigator() {
          <Stack.Screen
           name="Gift"
           component={GiftScreen}
-          initialRouteName='Gift'
         />
       </Stack.Navigator>
     </NavigationContainer>
